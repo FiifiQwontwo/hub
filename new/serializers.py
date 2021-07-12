@@ -2,12 +2,28 @@ from rest_framework import serializers
 from .models import *
 
 
-class ApplicantSerializer(serializers.ModelSerializer):
+class InternshipSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Applicant
-        fields = ('first_name', 'last_name', 'phone_number', 'email_address',
-                  'region', 'city', 'level_of_education', 'id_type', 'id_number',
-                  'are_you_employed', 'start_up_stages', 'start_up_name', 'number_of_founders', 'about_the_owner',
-                  'full_month_dedication',)
+        model = Internship
+        fields = ('first_name', 'middle_name', 'last_name', 'dob', 'phone_number', 'email_address',
+                  'name_of_school', 'year', 'course', 'programming_language_name',
+                  'framework_name',)
+
 
 #
+class SchoolSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SchoolName
+        fields = ('name_of_university',)
+
+
+class LanguageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Languages
+        fields = ('programming_language_name',)
+
+
+class FrameworkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Frameworks
+        fields = ('framework_name', 'language_of_framework',)

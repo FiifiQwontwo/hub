@@ -1,12 +1,3 @@
-import string
-import random
-from django.utils.text import slugify
-from django.db import models
-
-
-# Create your models here.
-
-
 def rand_slug():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
 
@@ -69,6 +60,7 @@ class Applicant(models.Model):
     are_you_employed = models.CharField(max_length=5, choices=asd, default='Yes')
     start_up_stages = models.ForeignKey(Stage, on_delete=models.CASCADE)
     start_up_name = models.CharField(max_length=100, blank=True)
+    name_of_institution = models.CharField(max_length=100, blank=True)
     number_of_founders = models.IntegerField()
     about_the_owner = models.TextField()
     full_month_dedication = models.CharField(max_length=5, choices=asd, default='Yes')
